@@ -1,28 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>QualityOfLifeJs</title>
+    <title>Quality of Life Search</title>
+    <script src="script.js" defer></script>
   </head>
-  <body>
-    <div id="search--form--section">
-      <input
-        aria-label="Search for a city you are interested to know categories-description-quality of life"
-        id="search--bar"
-        inputmode="search"
-        placeholder="Search City"
-        type="search"
-      />
-      <button id="search--btn">Search City</button>
-    </div>
-    <section id="result--search--section">
-      <p id="categories--paragraph"></p>
-      <p id="description--paragraph"></p>
-      <p id="quality-of-life--paragraph"></p>
-    </section>
+  <form id="search-form">
+    <input type="text" id="search-input">
+    <button type="submit">Submit</button>
+  </form>
+  <ul id="results-list"></ul>
   </body>
-  <script src="script.js"></script>
 </html>
