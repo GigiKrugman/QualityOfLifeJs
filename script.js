@@ -154,17 +154,32 @@ function getCityData(city) {
   )
     .then((response) => response.json())
     .then((data) => {
-      const cityData = data._embedded["city:search-results"];
-      //console.log(cityData);
-      const urbanArea =
-        cityData[0]._embedded["city:item"]._embedded["city:urban_area"]
-          ._embedded["ua:scores"];
-      //console.log(urbanArea);
-      const categories = urbanArea.categories;
-      console.log(categories);
-      const descriptions = urbanArea.summary;
-      console.log(descriptions);
-      const qualityOfLife = urbanArea.teleport_city_score.teleport_city_score;
-      console.log(qualityOfLife);
+      displayData(data);
     });
+}
+
+function displayData(data) {
+  const cityData = data._embedded["city:search-results"];
+  //console.log(cityData);
+  const urbanArea =
+    cityData[0]._embedded["city:item"]._embedded["city:urban_area"]._embedded[
+      "ua:scores"
+    ];
+  //console.log(urbanArea);
+  const categories = urbanArea.categories;
+  console.log(categories);
+  const descriptions = urbanArea.summary;
+  console.log(descriptions);
+  const qualityOfLife = urbanArea.teleport_city_score;
+  console.log(qualityOfLife);
+  let results = "";
+  results += "<h3>Categories:</h3><ul>";
+  categories.forEach((category) => {
+    results += `<li>${category.name}: ${category.score_out_of_10}</li>`;
+  });
+  results += "</ul>";
+  results += `<h3>Summary:</h3> ${descriptions}`;
+  results += `<h3>Quality of Life:</h3> ${qualityOfLife}`;
+
+  document.getElementById("results-list").innerHTML = results;
 }
