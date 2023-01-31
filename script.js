@@ -36,14 +36,18 @@ function displayData(data) {
 
   const qualityOfLife = urbanArea.teleport_city_score;
 
-  let results = "";
-  results += "<h3>Categories:</h3><ul>";
+  let results = document.getElementById("results-list-categories");
+  results.innerHTML += "<h2>Categories:</h2><ul>";
   categories.forEach((category) => {
-    results += `<li>${category.name}: ${category.score_out_of_10}</li>`;
+    results.innerHTML += `<ul><li>${category.name}: ${category.score_out_of_10}</li></ul>`;
   });
-  results += "</ul>";
-  results += `<h3>Summary:</h3> ${descriptions}`;
-  results += `<h3>Quality of Life:</h3> ${qualityOfLife}`;
+  //results += "</ul>";
+  document.getElementById(
+    "results-list-summary"
+  ).innerHTML += `<h3>Summary:</h3> ${descriptions}`;
+  document.getElementById(
+    "results-list-score"
+  ).innerHTML += `<h4>Quality of Life:</h4> ${qualityOfLife}`;
 
-  document.getElementById("results-list").innerHTML = results;
+  //document.getElementById("results-list").innerHTML = results;
 }

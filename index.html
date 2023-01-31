@@ -2,16 +2,24 @@
 <html>
   <head>
     <title>Quality of Life Search</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <form id="search-form">
-      <input type="text" id="search-input" />
-      <button type="submit" id="submit-btn">Submit</button>
+      <input
+        type="text"
+        id="search-input"
+        aria-label="Search for a city"
+        autocomplete="off"
+        inputmode="search"
+        placeholder="Enter name city"
+      />
+      <button type="submit" id="submit-btn">Search</button>
     </form>
     <div id="results-list">
-      <p id="results-list-categories"></p>
-      <p id="results-list-summary"></p>
-      <p id="results-list-score"></p>
+      <div id="results-list-categories"></div>
+      <div id="results-list-summary"></div>
+      <div id="results-list-score"></div>
     </div>
     <script src="script.js" defer></script>
   </body>
