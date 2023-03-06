@@ -6,10 +6,6 @@ document
     getCityData(city);
   });
 
-function clearInput() {
-  document.getElementById("search-form").reset();
-}
-
 function getCityData(city) {
   fetch(
     `https://api.teleport.org/api/cities/?search=${city}&embed=city:search-results/city:item/city:urban_area/ua:scores`
@@ -19,28 +15,18 @@ function getCityData(city) {
       console.log(data);
       displayData(data);
     });
-  // fetch(`(https://api.teleport.org/api/urban_areas/?embed=ua:item/ua:images`)
-  //   .then((response) => response.json())
-  //   .then((image) => {
-  //     console.log(image);
-  //   });
 }
 
 function displayData(data) {
   const cityData = data._embedded["city:search-results"];
-  // const cityImage = image;
-  // console.log(cityImage);
 
-  //console.log(cityData);
   const urbanArea =
     cityData[0]._embedded["city:item"]._embedded["city:urban_area"]._embedded[
       "ua:scores"
     ];
   //console.log(urbanArea);
   const categories = urbanArea.categories;
-
   const descriptions = urbanArea.summary;
-
   const qualityOfLife = urbanArea.teleport_city_score;
 
   let results = document.getElementById("results-list-categories");
@@ -66,3 +52,7 @@ function displayData(data) {
 function clearContent() {
   document.getElementById("results-list").innerHTML = "";
 }
+
+// function clearInput() {
+//   document.getElementById("search-form").reset();
+// }
