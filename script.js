@@ -26,10 +26,10 @@ function getCityData(city) {
   //   });
 }
 
-function displayData(data, image) {
+function displayData(data) {
   const cityData = data._embedded["city:search-results"];
-  const cityImage = image;
-  console.log(cityImage);
+  // const cityImage = image;
+  // console.log(cityImage);
 
   //console.log(cityData);
   const urbanArea =
