@@ -6,6 +6,10 @@ document
     getCityData(city);
   });
 
+function clearInput() {
+  document.getElementById("search-form").reset();
+}
+
 function getCityData(city) {
   fetch(
     `https://api.teleport.org/api/cities/?search=${city}&embed=city:search-results/city:item/city:urban_area/ua:scores`
@@ -57,4 +61,8 @@ function displayData(data, image) {
   )} points out of 100</div>`;
 
   //document.getElementById("results-list").innerHTML = results;
+}
+
+function clearContent() {
+  document.getElementById("results-list").innerHTML = "";
 }

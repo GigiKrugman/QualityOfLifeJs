@@ -14,7 +14,12 @@
         inputmode="search"
         placeholder="Enter name city"
       />
-      <button type="submit" id="submit-btn">Search</button>
+      <button type="submit" id="submit-btn" onclick="clearInput()">
+        Search
+      </button>
+      <button type="submit" id="clear-btn" onclick="clearContent()">
+        Clear
+      </button>
     </form>
     <div id="results-list">
       <div id="results-list-categories"></div>

@@ -23,6 +23,7 @@ body {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   margin-top: 50px; /* Add margin from top */
+  padding: 0 10px;
 }
 
 /* Style the search input box */
@@ -35,7 +36,8 @@ body {
 }
 
 /* Style the search button */
-#submit-btn {
+#submit-btn,
+#clear-btn {
   background-color: #4285f4; /* Set background color */
   border: none; /* Remove border */
   border-radius: 24px; /* Set border radius to make it round */
@@ -107,3 +109,7 @@ body {
   border-radius: 10px;
   margin: 5px 15px;
 }
+
+/* #delete-btn {
+  display: none;
+} */
