@@ -13,13 +13,15 @@
         autocomplete="off"
         inputmode="search"
         placeholder="Enter name city"
+        required
       />
       <button type="submit" id="submit-btn">Search</button>
-      <button type="submit" id="clear-btn" onclick="clearContent()">
+      <button type="button" id="clear-btn" onclick="clearContent()">
         Clear
       </button>
     </form>
     <div id="results-list">
+      <div id="results-list-image"></div>
       <div id="results-list-categories"></div>
       <div id="results-list-summary"></div>
       <div id="results-list-score"></div>

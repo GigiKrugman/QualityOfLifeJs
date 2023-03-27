@@ -50,9 +50,12 @@ function displayData(data) {
 }
 
 function clearContent() {
-  document.getElementById("results-list").innerHTML = "";
+  document.getElementById("results-list-categories").innerHTML = "";
+  document.getElementById("results-list-summary").innerHTML = "";
+  document.getElementById("results-list-score").innerHTML = "";
+  clearInput();
 }
 
-// function clearInput() {
-//   document.getElementById("search-form").reset();
-// }
+function clearInput() {
+  document.getElementById("search-form").reset();
+}
