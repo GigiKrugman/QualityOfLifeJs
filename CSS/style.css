@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.background--image {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.background--image img {
+  max-width: 100%;
+  height: auto;
+}
+
+#search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0 10px;
+  flex-wrap: wrap;
+}
+
+/* Style the search input box */
+#search-input {
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  font-size: 16px;
+  padding: 12px 16px;
+  width: 400px;
+  max-width: 100%;
+}
+
+/* Style the search button */
+#submit-btn,
+#clear-btn {
+  background-color: #4285f4;
+  border: none;
+  border-radius: 24px;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+/* Change color of button on hover */
+#submit-btn:hover {
+  background-color: #357ae8;
+}
+
+/* Change color of button on click */
+#submit-btn:active {
+  background-color: #2962ff;
+}
+
+.header--js {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  background-color: #4285f4;
+  padding: 8px 20px;
+  margin: 1rem 1rem;
+  border-radius: 10px;
+  min-width: fit-content;
+}
+
+.categories--div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  columns: 2;
+  column-gap: 0.25em;
+  padding: 8px 20px;
+  color: #fff; /* Set text color */
+  font-size: 14px;
+  background-color: #4285f4;
+  border-radius: 10px;
+  margin: 3px 1px;
+}
+
+.categories--list--js {
+  text-align: center;
+}
+
+.description--js {
+  text-align: center;
+  padding: 8px 20px;
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 20px;
+  background-color: #4285f4;
+  border-radius: 10px;
+}
+
+.quality--life--js {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quality--percentage--js {
+  text-align: center;
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #4285f4;
+  border-radius: 10px;
+  margin: 5px 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #search-input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  #submit-btn,
+  #clear-btn {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  #results-list {
+    padding: 10px;
+  }
+
+  .categories--div {
+    flex-direction: column;
+  }
+
+  .quality--life--js {
+    flex-direction: column;
+  }
+}
+
+#error-message {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#error-text {
+  color: #4284f3;
+  font-size: bold;
+  font-weight: 600;
+}
+
+#error-image {
+  max-width: 50%;
+  height: auto;
+}

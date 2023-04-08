@@ -1,0 +1,25 @@
+{
+  "name": "qualityoflifejs",
+  "version": "1.0.0",
+  "description": "City Search App for #StartToImpact",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GigiKrugman/QualityOfLifeJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GigiKrugman/QualityOfLifeJs/issues"
+  },
+  "homepage": "https://github.com/GigiKrugman/QualityOfLifeJs#readme",
+  "devDependencies": {
+    "vite": "^4.2.1"
+  }
+}

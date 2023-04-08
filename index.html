@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Quality of Life Search</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/CSS/style.css" />
   </head>
   <body>
     <form id="search-form">
@@ -16,16 +16,21 @@
         required
       />
       <button type="submit" id="submit-btn">Search</button>
-      <button type="button" id="clear-btn" onclick="clearContent()">
-        Clear
-      </button>
+      <button type="button" id="clear-btn">Clear</button>
     </form>
+    <div class="background--image">
+      <img src="assets/Images/city-life.png" alt="background-image" />
+    </div>
+    <div id="error-message" style="display: none">
+      <img id="error-image" src="assets/Images/error.png" alt="Error" />
+      <p id="error-text"></p>
+    </div>
     <div id="results-list">
       <div id="results-list-image"></div>
       <div id="results-list-categories"></div>
       <div id="results-list-summary"></div>
       <div id="results-list-score"></div>
     </div>
-    <script src="script.js" defer></script>
+    <script type="module" src="/src/JS/script.js"></script>
   </body>
 </html>
