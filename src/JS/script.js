@@ -1,12 +1,16 @@
 import { getCityData } from "../JS/api";
 
-document
-  .getElementById("search-form")
-  .addEventListener("submit", function (event) {
+const searchForm = document.getElementById("search-form");
+if (searchForm) {
+  searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    const city = document.getElementById("search-input").value;
-    getCityData(city);
+    const searchInput = document.getElementById("search-input");
+    if (searchInput) {
+      const city = searchInput.value;
+      getCityData(city);
+    }
   });
+}
 
 export function displayData(data) {
   const cityData = data._embedded["city:search-results"];
@@ -20,37 +24,77 @@ export function displayData(data) {
   const descriptions = urbanArea.summary;
   const qualityOfLife = urbanArea.teleport_city_score;
 
+  //refactored to use .map()
   let results = document.getElementById("results-list-categories");
-  results.innerHTML += `<h2 class="header--js" >Categories:</h2><ul>`;
-  categories.forEach((category) => {
-    results.innerHTML += `<div class="categories--div"><ul><li class="categories--list--js">${
-      category.name
-    }: ${category.score_out_of_10.toFixed(2)} / 10</li></ul></div>`;
-  });
+  if (results) {
+    results.innerHTML += `<h2 class="header--js" >Categories:</h2><ul>`;
+    const categoryElements = categories.map((category) => {
+      results.innerHTML += `<div class="categories--div"><ul><li class="categories--list--js">${
+        category.name
+      }: ${category.score_out_of_10.toFixed(2)} / 10</li></ul></div>`;
+    });
+    results.innerHTML += categoryElements.join("");
+  }
 
-  document.getElementById(
-    "results-list-summary"
-  ).innerHTML += `<div class="description--js"><h3>Summary:</h3><p> ${descriptions} </p></div>`;
-  document.getElementById(
-    "results-list-score"
-  ).innerHTML += `<div class="quality--percentage--js"><h4>Quality of Life:</h4> ${qualityOfLife.toFixed(
-    1
-  )} points out of 100</div>`;
+  const resultsSummary = document.getElementById("results-list-summary");
+  if (resultsSummary) {
+    resultsSummary.innerHTML += `<div class="description--js"><h3>Summary:</h3><p> ${descriptions} </p></div>`;
+  }
+
+  const resultsScore = document.getElementById("results-list-score");
+  if (resultsScore) {
+    resultsScore.innerHTML += `<div class="quality--percentage--js"><h4>Quality of Life:</h4> ${qualityOfLife.toFixed(
+      1
+    )} points out of 100</div>`;
+  }
 }
 
 export function hideBackgroundImage() {
-  document.querySelector(".background--image").style.display = "none";
+  const backgroundImage = document.querySelector(".background--image");
+  if (backgroundImage) {
+    backgroundImage.style.display = "none";
+  }
 }
 
 function showBackgroundImage() {
-  document.querySelector(".background--image").style.display = "flex";
+  const backgroundImage = document.querySelector(".background--image");
+  if (backgroundImage) {
+    backgroundImage.style.display = "flex";
+  }
 }
 
 export function clearContent() {
-  document.getElementById("results-list-categories").innerHTML = "";
-  document.getElementById("results-list-summary").innerHTML = "";
-  document.getElementById("results-list-score").innerHTML = "";
+  const resultsListCategories = document.getElementById(
+    "results-list-categories"
+  );
+  if (resultsListCategories) {
+    resultsListCategories.innerHTML = "";
+  }
+
+  const resultsListSummary = document.getElementById("results-list-summary");
+  if (resultsListSummary) {
+    resultsListSummary.innerHTML = "";
+  }
+
+  const resultsListScore = document.getElementById("results-list-score");
+  if (resultsListScore) {
+    resultsListScore.innerHTML = "";
+  }
+
   showBackgroundImage();
 }
 
-document.getElementById("clear-btn").addEventListener("click", clearContent);
+const clearBtn = document.getElementById("clear-btn");
+if (clearBtn) {
+  clearBtn.addEventListener("click", clearContent);
+}
+
+//added the clear content also the the "x" button in the search field
+const searchInput = document.getElementById("search-input");
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    if (searchInput.value === "") {
+      clearContent();
+    }
+  });
+}
