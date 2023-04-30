@@ -1,4 +1,31 @@
-import { getCityData } from "../JS/api";
+import { showErrorMessage, hideErrorMessage } from "../JS/error";
+import { showLoading, hideLoading } from "./loading";
+
+export function getCityData(city) {
+  fetch(
+    `https://api.teleport.org/api/cities/?search=${city}&embed=city:search-results/city:item/city:urban_area/ua:scores`
+  )
+    .then((response) => {
+      showLoading();
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      displayData(data);
+      hideErrorMessage();
+      hideBackgroundImage();
+    })
+    .catch((error) => {
+      console.error("Error fetching city data:", error);
+      showErrorMessage(city);
+      hideBackgroundImage();
+    })
+    .finally(() => {
+      hideLoading();
+    });
+}
 
 const searchForm = document.getElementById("search-form");
 if (searchForm) {
