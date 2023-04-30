@@ -13,6 +13,7 @@ if (searchForm) {
 }
 
 export function displayData(data) {
+  clearContent();
   const cityData = data._embedded["city:search-results"];
 
   const urbanArea =
